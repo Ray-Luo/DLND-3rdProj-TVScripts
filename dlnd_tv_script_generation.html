@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>dlnd_tv_script_generation</title>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>dlnd_tv_script_generation</title><script src="https://unpkg.com/jupyter-js-widgets@2.0.*/dist/embed.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -13,8 +11,8 @@
 *
 */
 /*!
- * Bootstrap v3.3.6 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1109,7 +1107,6 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2538,7 +2535,6 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3029,7 +3025,6 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -8760,6 +8755,9 @@ body > #header .header-bar {
     margin-left: 10px;
   }
 }
+[dir="rtl"] #ipython_notebook {
+  float: right !important;
+}
 #noscript {
   width: auto;
   padding-top: 16px;
@@ -8962,8 +8960,14 @@ span#login_widget > .button .badge,
  *
  * Author: Jupyter Development Team
  */
+[dir="rtl"] #tabs li {
+  float: right;
+}
 ul#tabs {
   margin-bottom: 4px;
+}
+[dir="rtl"] ul#tabs {
+  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
@@ -8986,6 +8990,16 @@ ul.breadcrumb span {
 }
 .list_toolbar .tree-buttons {
   padding-top: 1px;
+}
+[dir="rtl"] .list_toolbar .tree-buttons {
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-right {
+  padding-top: 1px;
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-left {
+  float: right !important;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9122,6 +9136,9 @@ ul.breadcrumb span {
 #tree-selector {
   padding-right: 0px;
 }
+[dir="rtl"] #tree-selector a {
+  float: right;
+}
 #button-select-all {
   min-width: 50px;
 }
@@ -9211,6 +9228,9 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
+[dir="rtl"] #new-menu {
+  text-align: right;
+}
 .kernel-menu-icon {
   padding-right: 12px;
   width: 24px;
@@ -9255,6 +9275,9 @@ ul#new-menu {
 }
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
+}
+[dir="rtl"] #running .col-sm-8 {
+  float: right !important;
 }
 .delete-button {
   display: none;
@@ -9551,6 +9574,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -9571,11 +9595,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -11246,7 +11265,7 @@ div#pager .ui-resizable-handle::after {
 }
 .shortcut_key {
   display: inline-block;
-  width: 20ex;
+  width: 21ex;
   text-align: right;
   font-family: monospace;
 }
@@ -11558,6 +11577,7 @@ ul.typeahead-list > li > a {
   box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
 }
 .terminal-app .terminal {
+  width: 100%;
   float: left;
   font-family: monospace;
   color: white;
@@ -11571,6 +11591,9 @@ ul.typeahead-list > li > a {
 .terminal-app .terminal dummy-screen {
   line-height: 1em;
   font-size: 14px;
+}
+.terminal-app .terminal .xterm-rows {
+  padding: 10px;
 }
 .terminal-app .terminal-cursor {
   color: black;
@@ -11631,8 +11654,10 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11643,9 +11668,11 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -11759,10 +11786,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[100]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">helper</span>
@@ -11790,31 +11817,31 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[101]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">view_sentence_range</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">view_sentence_range</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Dataset Stats&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Roughly the number of unique words: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">({</span><span class="n">word</span><span class="p">:</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()})))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Dataset Stats&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Roughly the number of unique words: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">({</span><span class="n">word</span><span class="p">:</span> <span class="bp">None</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()})))</span>
 <span class="n">scenes</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of scenes: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">scenes</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Number of scenes: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">scenes</span><span class="p">)))</span>
 <span class="n">sentence_count_scene</span> <span class="o">=</span> <span class="p">[</span><span class="n">scene</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">scene</span> <span class="ow">in</span> <span class="n">scenes</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Average number of sentences in each scene: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">sentence_count_scene</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Average number of sentences in each scene: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">sentence_count_scene</span><span class="p">)))</span>
 
 <span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span><span class="n">sentence</span> <span class="k">for</span> <span class="n">scene</span> <span class="ow">in</span> <span class="n">scenes</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">scene</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of lines: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sentences</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Number of lines: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sentences</span><span class="p">)))</span>
 <span class="n">word_count_sentence</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Average number of words in each line: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">word_count_sentence</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Average number of words in each line: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">word_count_sentence</span><span class="p">)))</span>
 
-<span class="nb">print</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The sentences </span><span class="si">{}</span><span class="s1"> to </span><span class="si">{}</span><span class="s1">:&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">view_sentence_range</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[</span><span class="n">view_sentence_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">view_sentence_range</span><span class="p">[</span><span class="mi">1</span><span class="p">]]))</span>
+<span class="k">print</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The sentences {} to {}:&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">view_sentence_range</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[</span><span class="n">view_sentence_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">view_sentence_range</span><span class="p">[</span><span class="mi">1</span><span class="p">]]))</span>
 </pre></div>
 
 </div>
@@ -11825,16 +11852,19 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Dataset Stats
 Roughly the number of unique words: 11492
 Number of scenes: 262
-Average number of sentences in each scene: 15.248091603053435
-Number of lines: 4257
-Average number of words in each line: 11.50434578341555
-
+Average number of sentences in each scene: 15.2519083969
+Number of lines: 4258
+Average number of words in each line: 11.5016439643
+()
 The sentences 0 to 10:
+
 Moe_Szyslak: (INTO PHONE) Moe&#39;s Tavern. Where the elite meet to drink.
 Bart_Simpson: Eh, yeah, hello, is Mike there? Last name, Rotch.
 Moe_Szyslak: (INTO PHONE) Hold on, I&#39;ll check. (TO BARFLIES) Mike Rotch. Mike Rotch. Hey, has anybody seen Mike Rotch, lately?
@@ -11843,7 +11873,6 @@ Moe_Szyslak: What&#39;s the matter Homer? You&#39;re not your normal effervescen
 Homer_Simpson: I got my problems, Moe. Give me another one.
 Moe_Szyslak: Homer, hey, you should not drink to forget your problems.
 Barney_Gumble: Yeah, you should only drink to enhance your social skills.
-
 
 </pre>
 </div>
@@ -11875,12 +11904,12 @@ Barney_Gumble: Yeah, you should only drink to enhance your social skills.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[102]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">problem_unittests</span> <span class="k">as</span> <span class="nn">tests</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">Counter</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">problem_unittests</span> <span class="kn">as</span> <span class="nn">tests</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
 
 <span class="k">def</span> <span class="nf">create_lookup_tables</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -11890,7 +11919,7 @@ Barney_Gumble: Yeah, you should only drink to enhance your social skills.
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># TODO: Implement Function</span>
     <span class="n">word_count</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-    <span class="n">sorted_vocab</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">word_count</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">word_count</span><span class="o">.</span><span class="n">get</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="n">sorted_vocab</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">word_count</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">word_count</span><span class="o">.</span><span class="n">get</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
     <span class="n">vocab_to_int</span> <span class="o">=</span> <span class="p">{</span><span class="n">word</span><span class="p">:</span> <span class="n">ii</span> <span class="k">for</span> <span class="n">ii</span><span class="p">,</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sorted_vocab</span><span class="p">)}</span>
     <span class="n">int_to_vocab</span> <span class="o">=</span> <span class="p">{</span><span class="n">ii</span><span class="p">:</span> <span class="n">word</span> <span class="k">for</span> <span class="n">ii</span><span class="p">,</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sorted_vocab</span><span class="p">)}</span>
     
@@ -11912,7 +11941,9 @@ Barney_Gumble: Yeah, you should only drink to enhance your social skills.
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Tests Passed
 </pre>
@@ -11949,10 +11980,10 @@ Barney_Gumble: Yeah, you should only drink to enhance your social skills.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[103]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">token_lookup</span><span class="p">():</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">token_lookup</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generate a dict to turn punctuation into a token.</span>
 <span class="sd">    :return: Tokenize dictionary where the key is the punctuation and the value is the token</span>
@@ -11975,7 +12006,9 @@ Barney_Gumble: Yeah, you should only drink to enhance your social skills.
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Tests Passed
 </pre>
@@ -11998,10 +12031,10 @@ Barney_Gumble: Yeah, you should only drink to enhance your social skills.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[104]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="c1"># Preprocess Training, Validation, and Testing Data</span>
@@ -12025,15 +12058,15 @@ Barney_Gumble: Yeah, you should only drink to enhance your social skills.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[105]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">helper</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">problem_unittests</span> <span class="k">as</span> <span class="nn">tests</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">problem_unittests</span> <span class="kn">as</span> <span class="nn">tests</span>
 
 <span class="n">int_text</span><span class="p">,</span> <span class="n">vocab_to_int</span><span class="p">,</span> <span class="n">int_to_vocab</span><span class="p">,</span> <span class="n">token_dict</span> <span class="o">=</span> <span class="n">helper</span><span class="o">.</span><span class="n">load_preprocess</span><span class="p">()</span>
 </pre></div>
@@ -12063,25 +12096,25 @@ Barney_Gumble: Yeah, you should only drink to enhance your social skills.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[106]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">distutils.version</span> <span class="k">import</span> <span class="n">LooseVersion</span>
+<span class="kn">from</span> <span class="nn">distutils.version</span> <span class="kn">import</span> <span class="n">LooseVersion</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
-<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="kn">as</span> <span class="nn">tf</span>
 
 <span class="c1"># Check TensorFlow Version</span>
 <span class="k">assert</span> <span class="n">LooseVersion</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">LooseVersion</span><span class="p">(</span><span class="s1">&#39;1.0&#39;</span><span class="p">),</span> <span class="s1">&#39;Please use TensorFlow version 1.0 or newer&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;TensorFlow Version: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;TensorFlow Version: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="p">))</span>
 
 <span class="c1"># Check for a GPU</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">tf</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">gpu_device_name</span><span class="p">():</span>
     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;No GPU found. Please use a GPU to train your neural network.&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Default GPU Device: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">gpu_device_name</span><span class="p">()))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Default GPU Device: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">gpu_device_name</span><span class="p">()))</span>
 </pre></div>
 
 </div>
@@ -12092,16 +12125,12 @@ Barney_Gumble: Yeah, you should only drink to enhance your social skills.
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>TensorFlow Version: 1.2.0
-</pre>
-</div>
-</div>
+<div class="output_area">
+<div class="prompt"></div>
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/home/ray/anaconda2/envs/dlnd-tf-lab/lib/python3.5/site-packages/ipykernel/__main__.py:14: UserWarning: No GPU found. Please use a GPU to train your neural network.
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>TensorFlow Version: 1.1.0
+Default GPU Device: /gpu:0
 </pre>
 </div>
 </div>
@@ -12128,17 +12157,17 @@ Barney_Gumble: Yeah, you should only drink to enhance your social skills.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[107]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_inputs</span><span class="p">():</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">get_inputs</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Create TF Placeholders for input, targets, and learning rate.</span>
 <span class="sd">    :return: Tuple (input, targets, learning rate)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># TODO: Implement Function</span>
-    <span class="n">inputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;input&quot;</span><span class="p">)</span>
-    <span class="n">targets</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;targets&quot;</span><span class="p">)</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;input&quot;</span><span class="p">)</span>
+    <span class="n">targets</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="p">[</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;targets&quot;</span><span class="p">)</span>
     <span class="n">l_rate</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">l_rate</span>
 
@@ -12157,7 +12186,9 @@ Barney_Gumble: Yeah, you should only drink to enhance your social skills.
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Tests Passed
 </pre>
@@ -12188,10 +12219,16 @@ Barney_Gumble: Yeah, you should only drink to enhance your social skills.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[108]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_init_cell</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">rnn_size</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">build_rnn_cell</span><span class="p">():</span>
+    <span class="n">lstm</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">rnn</span><span class="o">.</span><span class="n">BasicLSTMCell</span><span class="p">(</span><span class="n">rnn_size</span><span class="p">,</span><span class="n">reuse</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">get_variable_scope</span><span class="p">()</span><span class="o">.</span><span class="n">reuse</span><span class="p">)</span>
+    
+    <span class="n">drop</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">rnn</span><span class="o">.</span><span class="n">DropoutWrapper</span><span class="p">(</span><span class="n">lstm</span><span class="p">,</span> <span class="n">output_keep_prob</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">drop</span>
+
+<span class="k">def</span> <span class="nf">get_init_cell</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">rnn_size</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Create an RNN Cell and initialize it.</span>
 <span class="sd">    :param batch_size: Size of batches</span>
@@ -12199,16 +12236,17 @@ Barney_Gumble: Yeah, you should only drink to enhance your social skills.
 <span class="sd">    :return: Tuple (cell, initialize state)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># TODO: Implement Function</span>
-    <span class="n">lstm</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">rnn</span><span class="o">.</span><span class="n">BasicLSTMCell</span><span class="p">(</span><span class="n">rnn_size</span><span class="p">)</span>
+    <span class="c1">#lstm = tf.contrib.rnn.BasicLSTMCell(rnn_size,reuse=tf.get_variable_scope().reuse)</span>
     
-    <span class="n">drop</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">rnn</span><span class="o">.</span><span class="n">DropoutWrapper</span><span class="p">(</span><span class="n">lstm</span><span class="p">,</span> <span class="n">output_keep_prob</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="c1">#drop = tf.contrib.rnn.DropoutWrapper(lstm, output_keep_prob=0.2)</span>
     
-    <span class="n">cell</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">rnn</span><span class="o">.</span><span class="n">MultiRNNCell</span><span class="p">([</span><span class="n">drop</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="c1">#cell = tf.contrib.rnn.MultiRNNCell([drop] * 2)</span>
+    <span class="n">cell</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">rnn</span><span class="o">.</span><span class="n">MultiRNNCell</span><span class="p">([</span><span class="n">build_rnn_cell</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)])</span>
     
     <span class="n">initial_state</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">zero_state</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
     
     <span class="n">initial_state</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">initial_state</span><span class="p">,</span><span class="s2">&quot;initial_state&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">initial_state</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">initial_state</span><span class="p">)</span>
     
     <span class="k">return</span> <span class="n">cell</span><span class="p">,</span> <span class="n">initial_state</span>
 
@@ -12227,9 +12265,11 @@ Barney_Gumble: Yeah, you should only drink to enhance your social skills.
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Tensor(&#34;initial_state:0&#34;, shape=(2, 2, ?, 256), dtype=float32)
+<pre>Tensor(&#34;initial_state:0&#34;, shape=(2, 2, ?, 200), dtype=float32)
 Tests Passed
 </pre>
 </div>
@@ -12251,10 +12291,10 @@ Tests Passed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[109]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_embed</span><span class="p">(</span><span class="n">input_data</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">embed_dim</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">get_embed</span><span class="p">(</span><span class="n">input_data</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">embed_dim</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Create embedding for &lt;input_data&gt;.</span>
 <span class="sd">    :param input_data: TF placeholder for text input.</span>
@@ -12281,7 +12321,9 @@ Tests Passed
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Tests Passed
 </pre>
@@ -12311,10 +12353,10 @@ Tests Passed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[134]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">build_rnn</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">build_rnn</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Create a RNN using a RNN Cell</span>
 <span class="sd">    :param cell: RNN Cell</span>
@@ -12346,7 +12388,9 @@ Tests Passed
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Tests Passed
 </pre>
@@ -12375,10 +12419,10 @@ Tests Passed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[130]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">build_nn</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">rnn_size</span><span class="p">,</span> <span class="n">input_data</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">embed_dim</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">build_nn</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">rnn_size</span><span class="p">,</span> <span class="n">input_data</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">embed_dim</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Build part of the neural network</span>
 <span class="sd">    :param cell: RNN cell</span>
@@ -12393,7 +12437,7 @@ Tests Passed
     
     <span class="n">outputs</span><span class="p">,</span> <span class="n">final_state</span> <span class="o">=</span> <span class="n">build_rnn</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">embedded</span><span class="p">)</span>
     
-    <span class="n">outputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">fully_connected</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span><span class="n">vocab_size</span><span class="p">,</span><span class="n">activation_fn</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">fully_connected</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span><span class="n">vocab_size</span><span class="p">,</span><span class="n">activation_fn</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
     
     <span class="k">return</span> <span class="n">outputs</span><span class="p">,</span> <span class="n">final_state</span>
 
@@ -12412,7 +12456,9 @@ Tests Passed
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Tests Passed
 </pre>
@@ -12468,10 +12514,10 @@ Tests Passed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[131]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_batches</span><span class="p">(</span><span class="n">int_text</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">seq_length</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">get_batches</span><span class="p">(</span><span class="n">int_text</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">seq_length</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return batches of input and target</span>
 <span class="sd">    :param int_text: Text with the words replaced by their ids</span>
@@ -12533,7 +12579,9 @@ Tests Passed
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Tests Passed
 </pre>
@@ -12565,23 +12613,23 @@ Tests Passed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[132]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Number of Epochs</span>
-<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">10</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Number of Epochs</span>
+<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="c1"># Batch Size</span>
-<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">64</span>
+<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span>
 <span class="c1"># RNN Size</span>
-<span class="n">rnn_size</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">rnn_size</span> <span class="o">=</span> <span class="mi">256</span>
 <span class="c1"># Embedding Dimension Size</span>
-<span class="n">embed_dim</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">embed_dim</span> <span class="o">=</span> <span class="mi">256</span>
 <span class="c1"># Sequence Length</span>
-<span class="n">seq_length</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">seq_length</span> <span class="o">=</span> <span class="mi">12</span>
 <span class="c1"># Learning Rate</span>
-<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.001</span>
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.01</span>
 <span class="c1"># Show stats for every n number of batches</span>
-<span class="n">show_every_n_batches</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">show_every_n_batches</span> <span class="o">=</span> <span class="mi">30</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE</span>
@@ -12606,13 +12654,13 @@ Tests Passed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[133]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">tensorflow.contrib</span> <span class="k">import</span> <span class="n">seq2seq</span>
+<span class="kn">from</span> <span class="nn">tensorflow.contrib</span> <span class="kn">import</span> <span class="n">seq2seq</span>
 
 <span class="n">train_graph</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
 <span class="k">with</span> <span class="n">train_graph</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>
@@ -12636,7 +12684,7 @@ Tests Passed
 
     <span class="c1"># Gradient Clipping</span>
     <span class="n">gradients</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">compute_gradients</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span>
-    <span class="n">capped_gradients</span> <span class="o">=</span> <span class="p">[(</span><span class="n">tf</span><span class="o">.</span><span class="n">clip_by_value</span><span class="p">(</span><span class="n">grad</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">),</span> <span class="n">var</span><span class="p">)</span> <span class="k">for</span> <span class="n">grad</span><span class="p">,</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">gradients</span> <span class="k">if</span> <span class="n">grad</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="n">capped_gradients</span> <span class="o">=</span> <span class="p">[(</span><span class="n">tf</span><span class="o">.</span><span class="n">clip_by_value</span><span class="p">(</span><span class="n">grad</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">),</span> <span class="n">var</span><span class="p">)</span> <span class="k">for</span> <span class="n">grad</span><span class="p">,</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">gradients</span> <span class="k">if</span> <span class="n">grad</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">]</span>
     <span class="n">train_op</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">apply_gradients</span><span class="p">(</span><span class="n">capped_gradients</span><span class="p">)</span>
 </pre></div>
 
@@ -12648,201 +12696,12 @@ Tests Passed
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Tensor(&#34;initial_state:0&#34;, shape=(2, 2, ?, 200), dtype=float32)
+<pre>Tensor(&#34;initial_state:0&#34;, shape=(2, 2, ?, 256), dtype=float32)
 </pre>
-</div>
-</div>
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-133-a2d9a7091ca5&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">     10</span>     input_data_shape <span class="ansi-blue-fg">=</span> tf<span class="ansi-blue-fg">.</span>shape<span class="ansi-blue-fg">(</span>input_text<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     11</span>     cell<span class="ansi-blue-fg">,</span> initial_state <span class="ansi-blue-fg">=</span> get_init_cell<span class="ansi-blue-fg">(</span>input_data_shape<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> rnn_size<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">---&gt; 12</span><span class="ansi-red-fg">     </span>logits<span class="ansi-blue-fg">,</span> final_state <span class="ansi-blue-fg">=</span> build_nn<span class="ansi-blue-fg">(</span>cell<span class="ansi-blue-fg">,</span> rnn_size<span class="ansi-blue-fg">,</span> input_text<span class="ansi-blue-fg">,</span> vocab_size<span class="ansi-blue-fg">,</span> embed_dim<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     13</span> 
-<span class="ansi-green-intense-fg ansi-bold">     14</span>     <span class="ansi-red-fg"># Probabilities for generating words</span>
-
-<span class="ansi-green-fg">&lt;ipython-input-130-21c9e1daed88&gt;</span> in <span class="ansi-cyan-fg">build_nn</span><span class="ansi-blue-fg">(cell, rnn_size, input_data, vocab_size, embed_dim)</span>
-<span class="ansi-green-intense-fg ansi-bold">     12</span>     embedded <span class="ansi-blue-fg">=</span> get_embed<span class="ansi-blue-fg">(</span>input_data<span class="ansi-blue-fg">,</span> vocab_size<span class="ansi-blue-fg">,</span> embed_dim<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     13</span> 
-<span class="ansi-green-fg">---&gt; 14</span><span class="ansi-red-fg">     </span>outputs<span class="ansi-blue-fg">,</span> final_state <span class="ansi-blue-fg">=</span> build_rnn<span class="ansi-blue-fg">(</span>cell<span class="ansi-blue-fg">,</span> embedded<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     15</span> 
-<span class="ansi-green-intense-fg ansi-bold">     16</span>     outputs <span class="ansi-blue-fg">=</span> tf<span class="ansi-blue-fg">.</span>contrib<span class="ansi-blue-fg">.</span>layers<span class="ansi-blue-fg">.</span>fully_connected<span class="ansi-blue-fg">(</span>outputs<span class="ansi-blue-fg">,</span>vocab_size<span class="ansi-blue-fg">,</span>activation_fn<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">&lt;ipython-input-129-451b3693bcdc&gt;</span> in <span class="ansi-cyan-fg">build_rnn</span><span class="ansi-blue-fg">(cell, inputs)</span>
-<span class="ansi-green-intense-fg ansi-bold">     16</span>     cell<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">     17</span>     inputs<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-fg">---&gt; 18</span><span class="ansi-red-fg">     dtype=tf.float32)
-</span><span class="ansi-green-intense-fg ansi-bold">     19</span> 
-<span class="ansi-green-intense-fg ansi-bold">     20</span>     final_state <span class="ansi-blue-fg">=</span> tf<span class="ansi-blue-fg">.</span>identity<span class="ansi-blue-fg">(</span>final_state<span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">&#34;final_state&#34;</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/home/ray/anaconda2/envs/dlnd-tf-lab/lib/python3.5/site-packages/tensorflow/python/ops/rnn.py</span> in <span class="ansi-cyan-fg">dynamic_rnn</span><span class="ansi-blue-fg">(cell, inputs, sequence_length, initial_state, dtype, parallel_iterations, swap_memory, time_major, scope)</span>
-<span class="ansi-green-intense-fg ansi-bold">    572</span>         swap_memory<span class="ansi-blue-fg">=</span>swap_memory<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    573</span>         sequence_length<span class="ansi-blue-fg">=</span>sequence_length<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-fg">--&gt; 574</span><span class="ansi-red-fg">         dtype=dtype)
-</span><span class="ansi-green-intense-fg ansi-bold">    575</span> 
-<span class="ansi-green-intense-fg ansi-bold">    576</span>     <span class="ansi-red-fg"># Outputs of _dynamic_rnn_loop are always shaped [time, batch, depth].</span>
-
-<span class="ansi-green-fg">/home/ray/anaconda2/envs/dlnd-tf-lab/lib/python3.5/site-packages/tensorflow/python/ops/rnn.py</span> in <span class="ansi-cyan-fg">_dynamic_rnn_loop</span><span class="ansi-blue-fg">(cell, inputs, initial_state, parallel_iterations, swap_memory, sequence_length, dtype)</span>
-<span class="ansi-green-intense-fg ansi-bold">    735</span>       loop_vars<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">(</span>time<span class="ansi-blue-fg">,</span> output_ta<span class="ansi-blue-fg">,</span> state<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    736</span>       parallel_iterations<span class="ansi-blue-fg">=</span>parallel_iterations<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-fg">--&gt; 737</span><span class="ansi-red-fg">       swap_memory=swap_memory)
-</span><span class="ansi-green-intense-fg ansi-bold">    738</span> 
-<span class="ansi-green-intense-fg ansi-bold">    739</span>   <span class="ansi-red-fg"># Unpack final output if not using output tuples.</span>
-
-<span class="ansi-green-fg">/home/ray/anaconda2/envs/dlnd-tf-lab/lib/python3.5/site-packages/tensorflow/python/ops/control_flow_ops.py</span> in <span class="ansi-cyan-fg">while_loop</span><span class="ansi-blue-fg">(cond, body, loop_vars, shape_invariants, parallel_iterations, back_prop, swap_memory, name)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2768</span>     context <span class="ansi-blue-fg">=</span> WhileContext<span class="ansi-blue-fg">(</span>parallel_iterations<span class="ansi-blue-fg">,</span> back_prop<span class="ansi-blue-fg">,</span> swap_memory<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2769</span>     ops<span class="ansi-blue-fg">.</span>add_to_collection<span class="ansi-blue-fg">(</span>ops<span class="ansi-blue-fg">.</span>GraphKeys<span class="ansi-blue-fg">.</span>WHILE_CONTEXT<span class="ansi-blue-fg">,</span> context<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">-&gt; 2770</span><span class="ansi-red-fg">     </span>result <span class="ansi-blue-fg">=</span> context<span class="ansi-blue-fg">.</span>BuildLoop<span class="ansi-blue-fg">(</span>cond<span class="ansi-blue-fg">,</span> body<span class="ansi-blue-fg">,</span> loop_vars<span class="ansi-blue-fg">,</span> shape_invariants<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2771</span>     <span class="ansi-green-fg">return</span> result
-<span class="ansi-green-intense-fg ansi-bold">   2772</span> 
-
-<span class="ansi-green-fg">/home/ray/anaconda2/envs/dlnd-tf-lab/lib/python3.5/site-packages/tensorflow/python/ops/control_flow_ops.py</span> in <span class="ansi-cyan-fg">BuildLoop</span><span class="ansi-blue-fg">(self, pred, body, loop_vars, shape_invariants)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2597</span>       self<span class="ansi-blue-fg">.</span>Enter<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2598</span>       original_body_result, exit_vars = self._BuildLoop(
-<span class="ansi-green-fg">-&gt; 2599</span><span class="ansi-red-fg">           pred, body, original_loop_vars, loop_vars, shape_invariants)
-</span><span class="ansi-green-intense-fg ansi-bold">   2600</span>     <span class="ansi-green-fg">finally</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">   2601</span>       self<span class="ansi-blue-fg">.</span>Exit<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/home/ray/anaconda2/envs/dlnd-tf-lab/lib/python3.5/site-packages/tensorflow/python/ops/control_flow_ops.py</span> in <span class="ansi-cyan-fg">_BuildLoop</span><span class="ansi-blue-fg">(self, pred, body, original_loop_vars, loop_vars, shape_invariants)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2547</span>         structure<span class="ansi-blue-fg">=</span>original_loop_vars<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">   2548</span>         flat_sequence=vars_for_body_with_tensor_arrays)
-<span class="ansi-green-fg">-&gt; 2549</span><span class="ansi-red-fg">     </span>body_result <span class="ansi-blue-fg">=</span> body<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>packed_vars_for_body<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2550</span>     <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> nest<span class="ansi-blue-fg">.</span>is_sequence<span class="ansi-blue-fg">(</span>body_result<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">   2551</span>       body_result <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span>body_result<span class="ansi-blue-fg">]</span>
-
-<span class="ansi-green-fg">/home/ray/anaconda2/envs/dlnd-tf-lab/lib/python3.5/site-packages/tensorflow/python/ops/rnn.py</span> in <span class="ansi-cyan-fg">_time_step</span><span class="ansi-blue-fg">(time, output_ta_t, state)</span>
-<span class="ansi-green-intense-fg ansi-bold">    720</span>           skip_conditionals=True)
-<span class="ansi-green-intense-fg ansi-bold">    721</span>     <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 722</span><span class="ansi-red-fg">       </span><span class="ansi-blue-fg">(</span>output<span class="ansi-blue-fg">,</span> new_state<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">=</span> call_cell<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    723</span> 
-<span class="ansi-green-intense-fg ansi-bold">    724</span>     <span class="ansi-red-fg"># Pack state if using state tuples</span>
-
-<span class="ansi-green-fg">/home/ray/anaconda2/envs/dlnd-tf-lab/lib/python3.5/site-packages/tensorflow/python/ops/rnn.py</span> in <span class="ansi-cyan-fg">&lt;lambda&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">    706</span> 
-<span class="ansi-green-intense-fg ansi-bold">    707</span>     input_t <span class="ansi-blue-fg">=</span> nest<span class="ansi-blue-fg">.</span>pack_sequence_as<span class="ansi-blue-fg">(</span>structure<span class="ansi-blue-fg">=</span>inputs<span class="ansi-blue-fg">,</span> flat_sequence<span class="ansi-blue-fg">=</span>input_t<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">--&gt; 708</span><span class="ansi-red-fg">     </span>call_cell <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">lambda</span><span class="ansi-blue-fg">:</span> cell<span class="ansi-blue-fg">(</span>input_t<span class="ansi-blue-fg">,</span> state<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    709</span> 
-<span class="ansi-green-intense-fg ansi-bold">    710</span>     <span class="ansi-green-fg">if</span> sequence_length <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">/home/ray/anaconda2/envs/dlnd-tf-lab/lib/python3.5/site-packages/tensorflow/python/ops/rnn_cell_impl.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, inputs, state, scope)</span>
-<span class="ansi-green-intense-fg ansi-bold">    178</span>       with vs.variable_scope(vs.get_variable_scope(),
-<span class="ansi-green-intense-fg ansi-bold">    179</span>                              custom_getter=self._rnn_get_variable):
-<span class="ansi-green-fg">--&gt; 180</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> super<span class="ansi-blue-fg">(</span>RNNCell<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>__call__<span class="ansi-blue-fg">(</span>inputs<span class="ansi-blue-fg">,</span> state<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    181</span> 
-<span class="ansi-green-intense-fg ansi-bold">    182</span>   <span class="ansi-green-fg">def</span> _rnn_get_variable<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> getter<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">/home/ray/anaconda2/envs/dlnd-tf-lab/lib/python3.5/site-packages/tensorflow/python/layers/base.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, inputs, *args, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">    439</span>         <span class="ansi-red-fg"># Check input assumptions set after layer building, e.g. input shape.</span>
-<span class="ansi-green-intense-fg ansi-bold">    440</span>         self<span class="ansi-blue-fg">.</span>_assert_input_compatibility<span class="ansi-blue-fg">(</span>inputs<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">--&gt; 441</span><span class="ansi-red-fg">         </span>outputs <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>call<span class="ansi-blue-fg">(</span>inputs<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    442</span> 
-<span class="ansi-green-intense-fg ansi-bold">    443</span>         <span class="ansi-red-fg"># Apply activity regularization.</span>
-
-<span class="ansi-green-fg">/home/ray/anaconda2/envs/dlnd-tf-lab/lib/python3.5/site-packages/tensorflow/python/ops/rnn_cell_impl.py</span> in <span class="ansi-cyan-fg">call</span><span class="ansi-blue-fg">(self, inputs, state)</span>
-<span class="ansi-green-intense-fg ansi-bold">    914</span>                                       [-1, cell.state_size])
-<span class="ansi-green-intense-fg ansi-bold">    915</span>           cur_state_pos <span class="ansi-blue-fg">+=</span> cell<span class="ansi-blue-fg">.</span>state_size
-<span class="ansi-green-fg">--&gt; 916</span><span class="ansi-red-fg">         </span>cur_inp<span class="ansi-blue-fg">,</span> new_state <span class="ansi-blue-fg">=</span> cell<span class="ansi-blue-fg">(</span>cur_inp<span class="ansi-blue-fg">,</span> cur_state<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    917</span>         new_states<span class="ansi-blue-fg">.</span>append<span class="ansi-blue-fg">(</span>new_state<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    918</span> 
-
-<span class="ansi-green-fg">/home/ray/anaconda2/envs/dlnd-tf-lab/lib/python3.5/site-packages/tensorflow/python/ops/rnn_cell_impl.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, inputs, state, scope)</span>
-<span class="ansi-green-intense-fg ansi-bold">    750</span>                              self<span class="ansi-blue-fg">.</span>_recurrent_input_noise<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    751</span>                              self._input_keep_prob)
-<span class="ansi-green-fg">--&gt; 752</span><span class="ansi-red-fg">     </span>output<span class="ansi-blue-fg">,</span> new_state <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_cell<span class="ansi-blue-fg">(</span>inputs<span class="ansi-blue-fg">,</span> state<span class="ansi-blue-fg">,</span> scope<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    753</span>     <span class="ansi-green-fg">if</span> _should_dropout<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>_state_keep_prob<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    754</span>       new_state = self._dropout(new_state, &#34;state&#34;,
-
-<span class="ansi-green-fg">/home/ray/anaconda2/envs/dlnd-tf-lab/lib/python3.5/site-packages/tensorflow/python/ops/rnn_cell_impl.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, inputs, state, scope)</span>
-<span class="ansi-green-intense-fg ansi-bold">    178</span>       with vs.variable_scope(vs.get_variable_scope(),
-<span class="ansi-green-intense-fg ansi-bold">    179</span>                              custom_getter=self._rnn_get_variable):
-<span class="ansi-green-fg">--&gt; 180</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> super<span class="ansi-blue-fg">(</span>RNNCell<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>__call__<span class="ansi-blue-fg">(</span>inputs<span class="ansi-blue-fg">,</span> state<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    181</span> 
-<span class="ansi-green-intense-fg ansi-bold">    182</span>   <span class="ansi-green-fg">def</span> _rnn_get_variable<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> getter<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">/home/ray/anaconda2/envs/dlnd-tf-lab/lib/python3.5/site-packages/tensorflow/python/layers/base.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, inputs, *args, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">    439</span>         <span class="ansi-red-fg"># Check input assumptions set after layer building, e.g. input shape.</span>
-<span class="ansi-green-intense-fg ansi-bold">    440</span>         self<span class="ansi-blue-fg">.</span>_assert_input_compatibility<span class="ansi-blue-fg">(</span>inputs<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">--&gt; 441</span><span class="ansi-red-fg">         </span>outputs <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>call<span class="ansi-blue-fg">(</span>inputs<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    442</span> 
-<span class="ansi-green-intense-fg ansi-bold">    443</span>         <span class="ansi-red-fg"># Apply activity regularization.</span>
-
-<span class="ansi-green-fg">/home/ray/anaconda2/envs/dlnd-tf-lab/lib/python3.5/site-packages/tensorflow/python/ops/rnn_cell_impl.py</span> in <span class="ansi-cyan-fg">call</span><span class="ansi-blue-fg">(self, inputs, state)</span>
-<span class="ansi-green-intense-fg ansi-bold">    381</span>       c<span class="ansi-blue-fg">,</span> h <span class="ansi-blue-fg">=</span> array_ops<span class="ansi-blue-fg">.</span>split<span class="ansi-blue-fg">(</span>value<span class="ansi-blue-fg">=</span>state<span class="ansi-blue-fg">,</span> num_or_size_splits<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">,</span> axis<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    382</span> 
-<span class="ansi-green-fg">--&gt; 383</span><span class="ansi-red-fg">     </span>concat <span class="ansi-blue-fg">=</span> _linear<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span>inputs<span class="ansi-blue-fg">,</span> h<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">4</span> <span class="ansi-blue-fg">*</span> self<span class="ansi-blue-fg">.</span>_num_units<span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    384</span> 
-<span class="ansi-green-intense-fg ansi-bold">    385</span>     <span class="ansi-red-fg"># i = input_gate, j = new_input, f = forget_gate, o = output_gate</span>
-
-<span class="ansi-green-fg">/home/ray/anaconda2/envs/dlnd-tf-lab/lib/python3.5/site-packages/tensorflow/python/ops/rnn_cell_impl.py</span> in <span class="ansi-cyan-fg">_linear</span><span class="ansi-blue-fg">(args, output_size, bias, bias_initializer, kernel_initializer)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1015</span>         _WEIGHTS_VARIABLE_NAME<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">[</span>total_arg_size<span class="ansi-blue-fg">,</span> output_size<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">   1016</span>         dtype<span class="ansi-blue-fg">=</span>dtype<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-fg">-&gt; 1017</span><span class="ansi-red-fg">         initializer=kernel_initializer)
-</span><span class="ansi-green-intense-fg ansi-bold">   1018</span>     <span class="ansi-green-fg">if</span> len<span class="ansi-blue-fg">(</span>args<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">   1019</span>       res <span class="ansi-blue-fg">=</span> math_ops<span class="ansi-blue-fg">.</span>matmul<span class="ansi-blue-fg">(</span>args<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> weights<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/home/ray/anaconda2/envs/dlnd-tf-lab/lib/python3.5/site-packages/tensorflow/python/ops/variable_scope.py</span> in <span class="ansi-cyan-fg">get_variable</span><span class="ansi-blue-fg">(name, shape, dtype, initializer, regularizer, trainable, collections, caching_device, partitioner, validate_shape, use_resource, custom_getter)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1063</span>       collections<span class="ansi-blue-fg">=</span>collections<span class="ansi-blue-fg">,</span> caching_device<span class="ansi-blue-fg">=</span>caching_device<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">   1064</span>       partitioner<span class="ansi-blue-fg">=</span>partitioner<span class="ansi-blue-fg">,</span> validate_shape<span class="ansi-blue-fg">=</span>validate_shape<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-fg">-&gt; 1065</span><span class="ansi-red-fg">       use_resource=use_resource, custom_getter=custom_getter)
-</span><span class="ansi-green-intense-fg ansi-bold">   1066</span> get_variable_or_local_docstring = (
-<span class="ansi-green-intense-fg ansi-bold">   1067</span>     &#34;&#34;&#34;%s
-
-<span class="ansi-green-fg">/home/ray/anaconda2/envs/dlnd-tf-lab/lib/python3.5/site-packages/tensorflow/python/ops/variable_scope.py</span> in <span class="ansi-cyan-fg">get_variable</span><span class="ansi-blue-fg">(self, var_store, name, shape, dtype, initializer, regularizer, reuse, trainable, collections, caching_device, partitioner, validate_shape, use_resource, custom_getter)</span>
-<span class="ansi-green-intense-fg ansi-bold">    960</span>           collections<span class="ansi-blue-fg">=</span>collections<span class="ansi-blue-fg">,</span> caching_device<span class="ansi-blue-fg">=</span>caching_device<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    961</span>           partitioner<span class="ansi-blue-fg">=</span>partitioner<span class="ansi-blue-fg">,</span> validate_shape<span class="ansi-blue-fg">=</span>validate_shape<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-fg">--&gt; 962</span><span class="ansi-red-fg">           use_resource=use_resource, custom_getter=custom_getter)
-</span><span class="ansi-green-intense-fg ansi-bold">    963</span> 
-<span class="ansi-green-intense-fg ansi-bold">    964</span>   def _get_partitioned_variable(self,
-
-<span class="ansi-green-fg">/home/ray/anaconda2/envs/dlnd-tf-lab/lib/python3.5/site-packages/tensorflow/python/ops/variable_scope.py</span> in <span class="ansi-cyan-fg">get_variable</span><span class="ansi-blue-fg">(self, name, shape, dtype, initializer, regularizer, reuse, trainable, collections, caching_device, partitioner, validate_shape, use_resource, custom_getter)</span>
-<span class="ansi-green-intense-fg ansi-bold">    358</span>           reuse<span class="ansi-blue-fg">=</span>reuse<span class="ansi-blue-fg">,</span> trainable<span class="ansi-blue-fg">=</span>trainable<span class="ansi-blue-fg">,</span> collections<span class="ansi-blue-fg">=</span>collections<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    359</span>           caching_device<span class="ansi-blue-fg">=</span>caching_device<span class="ansi-blue-fg">,</span> partitioner<span class="ansi-blue-fg">=</span>partitioner<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-fg">--&gt; 360</span><span class="ansi-red-fg">           validate_shape=validate_shape, use_resource=use_resource)
-</span><span class="ansi-green-intense-fg ansi-bold">    361</span>     <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    362</span>       return _true_getter(
-
-<span class="ansi-green-fg">/home/ray/anaconda2/envs/dlnd-tf-lab/lib/python3.5/site-packages/tensorflow/python/ops/variable_scope.py</span> in <span class="ansi-cyan-fg">wrapped_custom_getter</span><span class="ansi-blue-fg">(getter, *args, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1403</span>     return custom_getter(
-<span class="ansi-green-intense-fg ansi-bold">   1404</span>         functools<span class="ansi-blue-fg">.</span>partial<span class="ansi-blue-fg">(</span>old_getter<span class="ansi-blue-fg">,</span> getter<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span>
-<span class="ansi-green-fg">-&gt; 1405</span><span class="ansi-red-fg">         *args, **kwargs)
-</span><span class="ansi-green-intense-fg ansi-bold">   1406</span>   <span class="ansi-green-fg">return</span> wrapped_custom_getter
-<span class="ansi-green-intense-fg ansi-bold">   1407</span> 
-
-<span class="ansi-green-fg">/home/ray/anaconda2/envs/dlnd-tf-lab/lib/python3.5/site-packages/tensorflow/python/ops/rnn_cell_impl.py</span> in <span class="ansi-cyan-fg">_rnn_get_variable</span><span class="ansi-blue-fg">(self, getter, *args, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">    181</span> 
-<span class="ansi-green-intense-fg ansi-bold">    182</span>   <span class="ansi-green-fg">def</span> _rnn_get_variable<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> getter<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 183</span><span class="ansi-red-fg">     </span>variable <span class="ansi-blue-fg">=</span> getter<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    184</span>     trainable = (variable in tf_variables.trainable_variables() or
-<span class="ansi-green-intense-fg ansi-bold">    185</span>                  (isinstance(variable, tf_variables.PartitionedVariable) and
-
-<span class="ansi-green-fg">/home/ray/anaconda2/envs/dlnd-tf-lab/lib/python3.5/site-packages/tensorflow/python/ops/rnn_cell_impl.py</span> in <span class="ansi-cyan-fg">_rnn_get_variable</span><span class="ansi-blue-fg">(self, getter, *args, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">    181</span> 
-<span class="ansi-green-intense-fg ansi-bold">    182</span>   <span class="ansi-green-fg">def</span> _rnn_get_variable<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> getter<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 183</span><span class="ansi-red-fg">     </span>variable <span class="ansi-blue-fg">=</span> getter<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    184</span>     trainable = (variable in tf_variables.trainable_variables() or
-<span class="ansi-green-intense-fg ansi-bold">    185</span>                  (isinstance(variable, tf_variables.PartitionedVariable) and
-
-<span class="ansi-green-fg">/home/ray/anaconda2/envs/dlnd-tf-lab/lib/python3.5/site-packages/tensorflow/python/ops/variable_scope.py</span> in <span class="ansi-cyan-fg">_true_getter</span><span class="ansi-blue-fg">(name, shape, dtype, initializer, regularizer, reuse, trainable, collections, caching_device, partitioner, validate_shape, use_resource)</span>
-<span class="ansi-green-intense-fg ansi-bold">    350</span>           trainable<span class="ansi-blue-fg">=</span>trainable<span class="ansi-blue-fg">,</span> collections<span class="ansi-blue-fg">=</span>collections<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    351</span>           caching_device<span class="ansi-blue-fg">=</span>caching_device<span class="ansi-blue-fg">,</span> validate_shape<span class="ansi-blue-fg">=</span>validate_shape<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-fg">--&gt; 352</span><span class="ansi-red-fg">           use_resource=use_resource)
-</span><span class="ansi-green-intense-fg ansi-bold">    353</span> 
-<span class="ansi-green-intense-fg ansi-bold">    354</span>     <span class="ansi-green-fg">if</span> custom_getter <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">/home/ray/anaconda2/envs/dlnd-tf-lab/lib/python3.5/site-packages/tensorflow/python/ops/variable_scope.py</span> in <span class="ansi-cyan-fg">_get_single_variable</span><span class="ansi-blue-fg">(self, name, shape, dtype, initializer, regularizer, partition_info, reuse, trainable, collections, caching_device, validate_shape, use_resource)</span>
-<span class="ansi-green-intense-fg ansi-bold">    667</span>         raise ValueError(&#34;Trying to share variable %s, but specified shape %s&#34;
-<span class="ansi-green-intense-fg ansi-bold">    668</span>                          &#34; and found shape %s.&#34; % (name, shape,
-<span class="ansi-green-fg">--&gt; 669</span><span class="ansi-red-fg">                                                    found_var.get_shape()))
-</span><span class="ansi-green-intense-fg ansi-bold">    670</span>       <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> dtype<span class="ansi-blue-fg">.</span>is_compatible_with<span class="ansi-blue-fg">(</span>found_var<span class="ansi-blue-fg">.</span>dtype<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    671</span>         dtype_str <span class="ansi-blue-fg">=</span> dtype<span class="ansi-blue-fg">.</span>name
-
-<span class="ansi-red-fg">ValueError</span>: Trying to share variable rnn/multi_rnn_cell/cell_0/basic_lstm_cell/kernel, but specified shape (400, 800) and found shape (300, 800).</pre>
 </div>
 </div>
 
@@ -12862,10 +12721,10 @@ Tests Passed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="n">batches</span> <span class="o">=</span> <span class="n">get_batches</span><span class="p">(</span><span class="n">int_text</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">seq_length</span><span class="p">)</span>
@@ -12886,7 +12745,7 @@ Tests Passed
 
             <span class="c1"># Show every &lt;show_every_n_batches&gt; batches</span>
             <span class="k">if</span> <span class="p">(</span><span class="n">epoch_i</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">batches</span><span class="p">)</span> <span class="o">+</span> <span class="n">batch_i</span><span class="p">)</span> <span class="o">%</span> <span class="n">show_every_n_batches</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Epoch </span><span class="si">{:&gt;3}</span><span class="s1"> Batch </span><span class="si">{:&gt;4}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">   train_loss = </span><span class="si">{:.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Epoch {:&gt;3} Batch {:&gt;4}/{}   train_loss = {:.3f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                     <span class="n">epoch_i</span><span class="p">,</span>
                     <span class="n">batch_i</span><span class="p">,</span>
                     <span class="nb">len</span><span class="p">(</span><span class="n">batches</span><span class="p">),</span>
@@ -12895,10 +12754,173 @@ Tests Passed
     <span class="c1"># Save Model</span>
     <span class="n">saver</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Saver</span><span class="p">()</span>
     <span class="n">saver</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">sess</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Model Trained and Saved&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Model Trained and Saved&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch   0 Batch    0/44   train_loss = 8.823
+Epoch   0 Batch   30/44   train_loss = 6.995
+Epoch   1 Batch   16/44   train_loss = 6.748
+Epoch   2 Batch    2/44   train_loss = 5.769
+Epoch   2 Batch   32/44   train_loss = 5.679
+Epoch   3 Batch   18/44   train_loss = 5.624
+Epoch   4 Batch    4/44   train_loss = 5.403
+Epoch   4 Batch   34/44   train_loss = 5.505
+Epoch   5 Batch   20/44   train_loss = 5.295
+Epoch   6 Batch    6/44   train_loss = 5.214
+Epoch   6 Batch   36/44   train_loss = 5.338
+Epoch   7 Batch   22/44   train_loss = 5.148
+Epoch   8 Batch    8/44   train_loss = 5.109
+Epoch   8 Batch   38/44   train_loss = 5.065
+Epoch   9 Batch   24/44   train_loss = 5.096
+Epoch  10 Batch   10/44   train_loss = 5.144
+Epoch  10 Batch   40/44   train_loss = 5.166
+Epoch  11 Batch   26/44   train_loss = 4.945
+Epoch  12 Batch   12/44   train_loss = 4.920
+Epoch  12 Batch   42/44   train_loss = 5.045
+Epoch  13 Batch   28/44   train_loss = 4.951
+Epoch  14 Batch   14/44   train_loss = 5.117
+Epoch  15 Batch    0/44   train_loss = 4.806
+Epoch  15 Batch   30/44   train_loss = 5.057
+Epoch  16 Batch   16/44   train_loss = 4.859
+Epoch  17 Batch    2/44   train_loss = 4.680
+Epoch  17 Batch   32/44   train_loss = 4.798
+Epoch  18 Batch   18/44   train_loss = 4.851
+Epoch  19 Batch    4/44   train_loss = 4.686
+Epoch  19 Batch   34/44   train_loss = 4.825
+Epoch  20 Batch   20/44   train_loss = 4.709
+Epoch  21 Batch    6/44   train_loss = 4.729
+Epoch  21 Batch   36/44   train_loss = 4.880
+Epoch  22 Batch   22/44   train_loss = 4.703
+Epoch  23 Batch    8/44   train_loss = 4.719
+Epoch  23 Batch   38/44   train_loss = 4.732
+Epoch  24 Batch   24/44   train_loss = 4.726
+Epoch  25 Batch   10/44   train_loss = 4.757
+Epoch  25 Batch   40/44   train_loss = 4.801
+Epoch  26 Batch   26/44   train_loss = 4.593
+Epoch  27 Batch   12/44   train_loss = 4.576
+Epoch  27 Batch   42/44   train_loss = 4.652
+Epoch  28 Batch   28/44   train_loss = 4.702
+Epoch  29 Batch   14/44   train_loss = 4.665
+Epoch  30 Batch    0/44   train_loss = 4.513
+Epoch  30 Batch   30/44   train_loss = 4.706
+Epoch  31 Batch   16/44   train_loss = 4.566
+Epoch  32 Batch    2/44   train_loss = 4.432
+Epoch  32 Batch   32/44   train_loss = 4.544
+Epoch  33 Batch   18/44   train_loss = 4.629
+Epoch  34 Batch    4/44   train_loss = 4.435
+Epoch  34 Batch   34/44   train_loss = 4.573
+Epoch  35 Batch   20/44   train_loss = 4.533
+Epoch  36 Batch    6/44   train_loss = 4.553
+Epoch  36 Batch   36/44   train_loss = 4.624
+Epoch  37 Batch   22/44   train_loss = 4.536
+Epoch  38 Batch    8/44   train_loss = 4.498
+Epoch  38 Batch   38/44   train_loss = 4.488
+Epoch  39 Batch   24/44   train_loss = 4.508
+Epoch  40 Batch   10/44   train_loss = 4.553
+Epoch  40 Batch   40/44   train_loss = 4.606
+Epoch  41 Batch   26/44   train_loss = 4.406
+Epoch  42 Batch   12/44   train_loss = 4.396
+Epoch  42 Batch   42/44   train_loss = 4.471
+Epoch  43 Batch   28/44   train_loss = 4.513
+Epoch  44 Batch   14/44   train_loss = 4.559
+Epoch  45 Batch    0/44   train_loss = 4.344
+Epoch  45 Batch   30/44   train_loss = 4.552
+Epoch  46 Batch   16/44   train_loss = 4.488
+Epoch  47 Batch    2/44   train_loss = 4.297
+Epoch  47 Batch   32/44   train_loss = 4.391
+Epoch  48 Batch   18/44   train_loss = 4.478
+Epoch  49 Batch    4/44   train_loss = 4.298
+Epoch  49 Batch   34/44   train_loss = 4.454
+Epoch  50 Batch   20/44   train_loss = 4.386
+Epoch  51 Batch    6/44   train_loss = 4.374
+Epoch  51 Batch   36/44   train_loss = 4.525
+Epoch  52 Batch   22/44   train_loss = 4.359
+Epoch  53 Batch    8/44   train_loss = 4.386
+Epoch  53 Batch   38/44   train_loss = 4.432
+Epoch  54 Batch   24/44   train_loss = 4.375
+Epoch  55 Batch   10/44   train_loss = 4.435
+Epoch  55 Batch   40/44   train_loss = 4.429
+Epoch  56 Batch   26/44   train_loss = 4.342
+Epoch  57 Batch   12/44   train_loss = 4.317
+Epoch  57 Batch   42/44   train_loss = 4.424
+Epoch  58 Batch   28/44   train_loss = 4.385
+Epoch  59 Batch   14/44   train_loss = 4.431
+Epoch  60 Batch    0/44   train_loss = 4.285
+Epoch  60 Batch   30/44   train_loss = 4.448
+Epoch  61 Batch   16/44   train_loss = 4.362
+Epoch  62 Batch    2/44   train_loss = 4.203
+Epoch  62 Batch   32/44   train_loss = 4.286
+Epoch  63 Batch   18/44   train_loss = 4.397
+Epoch  64 Batch    4/44   train_loss = 4.248
+Epoch  64 Batch   34/44   train_loss = 4.305
+Epoch  65 Batch   20/44   train_loss = 4.257
+Epoch  66 Batch    6/44   train_loss = 4.331
+Epoch  66 Batch   36/44   train_loss = 4.419
+Epoch  67 Batch   22/44   train_loss = 4.291
+Epoch  68 Batch    8/44   train_loss = 4.337
+Epoch  68 Batch   38/44   train_loss = 4.317
+Epoch  69 Batch   24/44   train_loss = 4.278
+Epoch  70 Batch   10/44   train_loss = 4.376
+Epoch  70 Batch   40/44   train_loss = 4.352
+Epoch  71 Batch   26/44   train_loss = 4.226
+Epoch  72 Batch   12/44   train_loss = 4.201
+Epoch  72 Batch   42/44   train_loss = 4.273
+Epoch  73 Batch   28/44   train_loss = 4.312
+Epoch  74 Batch   14/44   train_loss = 4.357
+Epoch  75 Batch    0/44   train_loss = 4.213
+Epoch  75 Batch   30/44   train_loss = 4.417
+Epoch  76 Batch   16/44   train_loss = 4.280
+Epoch  77 Batch    2/44   train_loss = 4.073
+Epoch  77 Batch   32/44   train_loss = 4.239
+Epoch  78 Batch   18/44   train_loss = 4.316
+Epoch  79 Batch    4/44   train_loss = 4.199
+Epoch  79 Batch   34/44   train_loss = 4.276
+Epoch  80 Batch   20/44   train_loss = 4.221
+Epoch  81 Batch    6/44   train_loss = 4.247
+Epoch  81 Batch   36/44   train_loss = 4.337
+Epoch  82 Batch   22/44   train_loss = 4.249
+Epoch  83 Batch    8/44   train_loss = 4.228
+Epoch  83 Batch   38/44   train_loss = 4.256
+Epoch  84 Batch   24/44   train_loss = 4.234
+Epoch  85 Batch   10/44   train_loss = 4.317
+Epoch  85 Batch   40/44   train_loss = 4.289
+Epoch  86 Batch   26/44   train_loss = 4.224
+Epoch  87 Batch   12/44   train_loss = 4.207
+Epoch  87 Batch   42/44   train_loss = 4.279
+Epoch  88 Batch   28/44   train_loss = 4.279
+Epoch  89 Batch   14/44   train_loss = 4.252
+Epoch  90 Batch    0/44   train_loss = 4.107
+Epoch  90 Batch   30/44   train_loss = 4.319
+Epoch  91 Batch   16/44   train_loss = 4.257
+Epoch  92 Batch    2/44   train_loss = 4.042
+Epoch  92 Batch   32/44   train_loss = 4.203
+Epoch  93 Batch   18/44   train_loss = 4.273
+Epoch  94 Batch    4/44   train_loss = 4.112
+Epoch  94 Batch   34/44   train_loss = 4.217
+Epoch  95 Batch   20/44   train_loss = 4.175
+Epoch  96 Batch    6/44   train_loss = 4.206
+Epoch  96 Batch   36/44   train_loss = 4.346
+Epoch  97 Batch   22/44   train_loss = 4.187
+Epoch  98 Batch    8/44   train_loss = 4.221
+Epoch  98 Batch   38/44   train_loss = 4.207
+Epoch  99 Batch   24/44   train_loss = 4.230
+Model Trained and Saved
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -12915,10 +12937,10 @@ Tests Passed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="c1"># Save parameters for checkpoint</span>
@@ -12941,16 +12963,16 @@ Tests Passed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="kn">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">helper</span>
-<span class="kn">import</span> <span class="nn">problem_unittests</span> <span class="k">as</span> <span class="nn">tests</span>
+<span class="kn">import</span> <span class="nn">problem_unittests</span> <span class="kn">as</span> <span class="nn">tests</span>
 
 <span class="n">_</span><span class="p">,</span> <span class="n">vocab_to_int</span><span class="p">,</span> <span class="n">int_to_vocab</span><span class="p">,</span> <span class="n">token_dict</span> <span class="o">=</span> <span class="n">helper</span><span class="o">.</span><span class="n">load_preprocess</span><span class="p">()</span>
 <span class="n">seq_length</span><span class="p">,</span> <span class="n">load_dir</span> <span class="o">=</span> <span class="n">helper</span><span class="o">.</span><span class="n">load_params</span><span class="p">()</span>
@@ -12980,17 +13002,17 @@ Tests Passed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_tensors</span><span class="p">(</span><span class="n">loaded_graph</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">get_tensors</span><span class="p">(</span><span class="n">loaded_graph</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get input, initial state, final state, and probabilities tensor from &lt;loaded_graph&gt;</span>
 <span class="sd">    :param loaded_graph: TensorFlow graph loaded from file</span>
 <span class="sd">    :return: Tuple (InputTensor, InitialStateTensor, FinalStateTensor, ProbsTensor)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># TODO: Implement Function</span>
-    <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">loaded_graph</span><span class="o">.</span><span class="n">get_tensor_by_name</span><span class="p">(</span><span class="s2">&quot;input:0&quot;</span><span class="p">),</span><span class="n">loaded_graph</span><span class="o">.</span><span class="n">get_tensor_by_name</span><span class="p">(</span><span class="s2">&quot;initial_state:0&quot;</span><span class="p">),</span> <span class="n">loaded_graph</span><span class="o">.</span><span class="n">get_tensor_by_name</span><span class="p">(</span><span class="s2">&quot;final_state:0&quot;</span><span class="p">),</span><span class="n">loaded_graph</span><span class="o">.</span><span class="n">get_tensor_by_name</span><span class="p">(</span><span class="s2">&quot;probs:0&quot;</span><span class="p">)</span>
 
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -13000,6 +13022,22 @@ Tests Passed
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Tests Passed
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13016,10 +13054,10 @@ Tests Passed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[58]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">pick_word</span><span class="p">(</span><span class="n">probabilities</span><span class="p">,</span> <span class="n">int_to_vocab</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">pick_word</span><span class="p">(</span><span class="n">probabilities</span><span class="p">,</span> <span class="n">int_to_vocab</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Pick the next word in the generated text</span>
 <span class="sd">    :param probabilities: Probabilites of the next word</span>
@@ -13027,7 +13065,8 @@ Tests Passed
 <span class="sd">    :return: String of the predicted word</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># TODO: Implement Function</span>
-    <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">int_to_vocab</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">probabilities</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">int_to_vocab</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
 
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -13037,6 +13076,22 @@ Tests Passed
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Tests Passed
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13053,10 +13108,10 @@ Tests Passed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gen_length</span> <span class="o">=</span> <span class="mi">200</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">gen_length</span> <span class="o">=</span> <span class="mi">200</span>
 <span class="c1"># homer_simpson, moe_szyslak, or Barney_Gumble</span>
 <span class="n">prime_word</span> <span class="o">=</span> <span class="s1">&#39;moe_szyslak&#39;</span>
 
@@ -13099,10 +13154,43 @@ Tests Passed
     <span class="n">tv_script</span> <span class="o">=</span> <span class="n">tv_script</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> &#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
     <span class="n">tv_script</span> <span class="o">=</span> <span class="n">tv_script</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;( &#39;</span><span class="p">,</span> <span class="s1">&#39;(&#39;</span><span class="p">)</span>
         
-    <span class="nb">print</span><span class="p">(</span><span class="n">tv_script</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">tv_script</span><span class="p">)</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>INFO:tensorflow:Restoring parameters from ./save
+moe_szyslak: two singing go, hey, morning. what it&#39;s something
+
+
+lenny_leonard: we am two five company. absolutely no duff, a little dude is have
+gentleman: well, i&#39;d takin&#39;.
+doug: hey.(to film) thanks? i had not a keys! and i get his carl&#39;s air more who gonna help sell dinner of and sing the kadlubowski.
+barney_gumble: lisa&#39;s image guy daddy, anyway!
+male_singers: shaker, it true used. dad. we love anymore later and stabbin&#39; me my girl as
+homer_simpson:(sadly sound) ooh, i&#39;ve ever. woo at a one!
+moe_szyslak: see, barney,
+carl_carlson: i-i didn&#39;t like with be tale.!(sniffs to bar) this suit homer, but who.(quick-like)
+
+
+krusty_the_clown: well, where where get that boxer we keep two peanuts trouble.
+moe_szyslak: mmmm, listenin&#39; in that knowledge of twentieth buffet of mudflap?
+moe_szyslak: eh, my?.
+barney_gumble: ah-ha, guys. what you be see true like the sharps.
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13121,4 +13209,8 @@ Tests Passed
     </div>
   </div>
 </body>
+
+ 
+
+
 </html>
